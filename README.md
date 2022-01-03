@@ -12,9 +12,7 @@
 
 - ### The mobile version doesn't have a video player yet, as it wasn't possible to add it yet! But it's still a nice, well-organized design!
 
-![Mobile Screenshot 1](screenshots/mobile0.png)
-
-![Mobile Screenshot 2](screenshots/mobile1.png)
+![Mobile Screenshot 1](screenshots/mobile0.png)![Mobile Screenshot 2](screenshots/mobile1.png)
 
 ## <p align='center'>@luanbatistadev</p>
 
