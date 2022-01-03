@@ -1,6 +1,6 @@
 <samp>
 
-# <p align='center'>Netflix Clone UI - Flutter/<p>
+# <p align='center'>Netflix Clone UI - Flutter</p>
 # <p align='center'>Web & Mobile: IOS | Android</p>
 
 ## <p align='center'>Web Version with Flutter!</p>
