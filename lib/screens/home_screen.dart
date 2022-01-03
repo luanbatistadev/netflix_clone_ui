@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/cubits/app_bar/app_bar_cubit.dart';
 import 'package:netflix_clone/cubits/cubits.dart';
 import 'package:netflix_clone/widgets/content_header.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
