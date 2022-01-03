@@ -16,4 +16,5 @@
 
 ![Mobile Screenshot 2](screenshots/mobile1.png)
 
+## <p align='center'>@luanbatistadev</p>
 </samp>
