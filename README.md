@@ -6,7 +6,7 @@
 ## <p align='center'>Web Version with Flutter!</p>
 - ### This web version uses flutter.
 
-<p align="center"><img width=350 height=150 src="videos/web.mp4" /></p>
+<p align="center"><img src="assets/videos/web.gif" /></p>
 
 ![Web Screenshot](screenshots/web.png)
 
@@ -14,7 +14,7 @@
 
 - ### The mobile version, now the video player is working!
 
-<p align="center"><img width=350 height=150 src="videos/mobile.mp4" /></p>
+<p align="center"><img src="assets/videos/mobile.gif" /></p>
 
 
 ![Mobile Screenshot 1](screenshots/mobile0.png)![Mobile Screenshot 2](screenshots/mobile1.png)
