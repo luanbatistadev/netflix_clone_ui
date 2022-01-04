@@ -5,14 +5,14 @@ import 'package:netflix_clone/cubits/cubits.dart';
 import 'package:netflix_clone/screens/home_screen.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
 
-class NacScreen extends StatefulWidget {
-  const NacScreen({Key? key}) : super(key: key);
+class NavScreen extends StatefulWidget {
+  const NavScreen({Key? key}) : super(key: key);
 
   @override
-  _NacScreenState createState() => _NacScreenState();
+  _NavScreenState createState() => _NavScreenState();
 }
 
-class _NacScreenState extends State<NacScreen> {
+class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     const HomeScreen(
       key: PageStorageKey('homeScreen'),

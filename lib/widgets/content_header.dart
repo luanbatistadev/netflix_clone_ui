@@ -21,63 +21,111 @@ class ContentHeader extends StatelessWidget {
   }
 }
 
-class _ContentHeaderMobile extends StatelessWidget {
+class _ContentHeaderMobile extends StatefulWidget {
   final Content featuredContent;
   const _ContentHeaderMobile({Key? key, required this.featuredContent})
       : super(key: key);
 
   @override
+  State<_ContentHeaderMobile> createState() => _ContentHeaderMobileState();
+}
+
+class _ContentHeaderMobileState extends State<_ContentHeaderMobile> {
+  late VideoPlayerController _videoPlayerController;
+
+  bool isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _videoPlayerController =
+        VideoPlayerController.network(widget.featuredContent.videoUrl!)
+          ..initialize().then((_) => setState(() {}))
+          ..setVolume(50)
+          ..setLooping(true)
+          ..setPlaybackSpeed(2);
+  }
+
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-          height: 500.0,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(featuredContent.imageUrl),
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        _videoPlayerController.value.isPlaying
+            ? _videoPlayerController.pause()
+            : _videoPlayerController.play();
+        setState(() {
+          isPlaying = !isPlaying;
+        });
+      },
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          AnimatedCrossFade(
+              firstChild: Padding(
+                padding: const EdgeInsets.only(top: 70),
+                child: AspectRatio(
+                    aspectRatio: _videoPlayerController.value.aspectRatio,
+                    child: VideoPlayer(_videoPlayerController)),
+              ),
+              secondChild: Container(
+                height: 500.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(widget.featuredContent.imageUrl),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              crossFadeState: isPlaying
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              duration: const Duration(milliseconds: 400)),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 400),
+            height: isPlaying ? 450 : 500.0,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.black, Colors.transparent],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter),
             ),
           ),
-        ),
-        Container(
-          height: 500.0,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.black, Colors.transparent],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter),
+          Positioned(
+            bottom: 110,
+            child: SizedBox(
+              width: 250,
+              child: Image.asset(widget.featuredContent.titleImageUrl!),
+            ),
           ),
-        ),
-        Positioned(
-          bottom: 110,
-          child: SizedBox(
-            width: 250,
-            child: Image.asset(featuredContent.titleImageUrl!),
-          ),
-        ),
-        Positioned(
-          left: 0,
-          right: 0,
-          bottom: 40,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              VerticalIconButton(
-                icon: Icons.add,
-                title: 'List',
-                onTap: () => print('MyList'),
-              ),
-              const _PlayButton(),
-              VerticalIconButton(
-                icon: Icons.info_outline,
-                title: 'Info',
-                onTap: () => print('Info'),
-              )
-            ],
-          ),
-        )
-      ],
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 40,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                VerticalIconButton(
+                  icon: Icons.add,
+                  title: 'List',
+                  onTap: () => print('MyList'),
+                ),
+                const _PlayButton(),
+                VerticalIconButton(
+                  icon: Icons.info_outline,
+                  title: 'Info',
+                  onTap: () => print('Info'),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -166,16 +214,17 @@ class _ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                 Text(
                   widget.featuredContent.description!,
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      shadows: [
-                        Shadow(
-                          color: Colors.black,
-                          offset: Offset(2.0, 4),
-                          blurRadius: 6,
-                        ),
-                      ]),
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black,
+                        offset: Offset(2.0, 4),
+                        blurRadius: 6,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -195,7 +244,10 @@ class _ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                         ),
                       ),
                       onPressed: () => print('More Info'),
-                      icon: const Icon(Icons.info_outline, size: 30,),
+                      icon: const Icon(
+                        Icons.info_outline,
+                        size: 30,
+                      ),
                       label: const Text(
                         'More Info',
                         style: TextStyle(
@@ -249,7 +301,9 @@ class _PlayButton extends StatelessWidget {
                 const EdgeInsets.fromLTRB(25, 10, 30, 10),
               ),
       ),
-      onPressed: () => print('Play'),
+      onPressed: () {
+        print('Play');
+      },
       icon: const Icon(
         Icons.play_arrow,
         size: 30,
