@@ -35,4 +35,15 @@
   <img align="center" alt="Luan Batista | Twitch" width="45px" src="assets\images\twitch ico.png" />
 </a>
 </p>
+
+<h2 align="center">
+  Open Source
+</h2>
+<p align="center">
+  <sub>Copyright © 2021-present, Luan Batista.</sub>
+</p>
+<p align="center">Netflix Clone Responsive UI - Flutter <a href="/LICENSE">is MIT licensed 💖</a></p>
+<p align="center">
+  <img src="assets\icons\netflix.ico" width="35" />
+</p>
 </samp>
