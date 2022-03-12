@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/cubits/app_bar/app_bar_cubit.dart';
 import 'package:netflix_clone/cubits/cubits.dart';
-import 'package:netflix_clone/widgets/content_header.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
 import 'package:netflix_clone/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.grey[850],
         child: const Icon(Icons.cast),
-        onPressed: () => print('Cast'),
+        onPressed: () => log('Cast'),
       ),
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 50.0),

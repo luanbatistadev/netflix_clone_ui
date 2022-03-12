@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/assets.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
@@ -38,15 +40,15 @@ class _CustomAppBarMobile extends StatelessWidget {
               children: [
                 _AppBarButton(
                   title: 'TV Shows',
-                  onTap: () => print('TV Shows'),
+                  onTap: () => log('TV Shows'),
                 ),
                 _AppBarButton(
                   title: 'Movies',
-                  onTap: () => print('Movies'),
+                  onTap: () => log('Movies'),
                 ),
                 _AppBarButton(
                   title: 'My List',
-                  onTap: () => print('My List'),
+                  onTap: () => log('My List'),
                 ),
               ],
             ),
@@ -75,23 +77,23 @@ class _CustomAppBarDesktop extends StatelessWidget {
               children: [
                 _AppBarButton(
                   title: 'Home',
-                  onTap: () => print('My List'),
+                  onTap: () => log('My List'),
                 ),
                 _AppBarButton(
                   title: 'TV Shows',
-                  onTap: () => print('TV Shows'),
+                  onTap: () => log('TV Shows'),
                 ),
                 _AppBarButton(
                   title: 'Movies',
-                  onTap: () => print('Movies'),
+                  onTap: () => log('Movies'),
                 ),
                 _AppBarButton(
                   title: 'Latest',
-                  onTap: () => print('My List'),
+                  onTap: () => log('My List'),
                 ),
                 _AppBarButton(
                   title: 'My List',
-                  onTap: () => print('My List'),
+                  onTap: () => log('My List'),
                 ),
               ],
             ),
@@ -106,29 +108,29 @@ class _CustomAppBarDesktop extends StatelessWidget {
                   icon: const Icon(Icons.search),
                   color: Colors.white,
                   iconSize: 28,
-                  onPressed: () => print('Search'),
+                  onPressed: () => log('Search'),
                 ),
                 _AppBarButton(
                   title: 'Kids',
-                  onTap: () => print('Kids'),
+                  onTap: () => log('Kids'),
                 ),
                 _AppBarButton(
                   title: 'DVD',
-                  onTap: () => print('DVD'),
+                  onTap: () => log('DVD'),
                 ),
                 IconButton(
                   padding: EdgeInsets.zero,
                   icon: const Icon(Icons.card_giftcard),
                   color: Colors.white,
                   iconSize: 28,
-                  onPressed: () => print('Gift'),
+                  onPressed: () => log('Gift'),
                 ),
                 IconButton(
                   padding: EdgeInsets.zero,
                   icon: const Icon(Icons.notifications),
                   color: Colors.white,
                   iconSize: 28,
-                  onPressed: () => print('Notifications'),
+                  onPressed: () => log('Notifications'),
                 ),
               ],
             ),

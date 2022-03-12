@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/models/content_model.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
@@ -113,13 +115,13 @@ class _ContentHeaderMobileState extends State<_ContentHeaderMobile> {
                 VerticalIconButton(
                   icon: Icons.add,
                   title: 'List',
-                  onTap: () => print('MyList'),
+                  onTap: () => log('MyList'),
                 ),
                 const _PlayButton(),
                 VerticalIconButton(
                   icon: Icons.info_outline,
                   title: 'Info',
-                  onTap: () => print('Info'),
+                  onTap: () => log('Info'),
                 )
               ],
             ),
@@ -243,7 +245,7 @@ class _ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                           const EdgeInsets.fromLTRB(25, 10, 30, 10),
                         ),
                       ),
-                      onPressed: () => print('More Info'),
+                      onPressed: () => log('More Info'),
                       icon: const Icon(
                         Icons.info_outline,
                         size: 30,
@@ -302,7 +304,7 @@ class _PlayButton extends StatelessWidget {
               ),
       ),
       onPressed: () {
-        print('Play');
+        log('Play');
       },
       icon: const Icon(
         Icons.play_arrow,

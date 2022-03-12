@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/models/models.dart';
 
@@ -39,16 +41,15 @@ class ContentList extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final Content content = contentList[index];
                 return GestureDetector(
-                  onTap: () => print(content.name),
+                  onTap: () => log(content.name),
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 8),
                     height: isOriginals ? 400.0 : 200,
                     width: isOriginals ? 200 : 130,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(content.imageUrl),
-                        fit: BoxFit.cover
-                      ),
+                          image: AssetImage(content.imageUrl),
+                          fit: BoxFit.cover),
                     ),
                   ),
                 );

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/models/models.dart';
 
@@ -35,7 +37,7 @@ class Previews extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final Content content = contentList[index];
               return GestureDetector(
-                onTap: () => print(content.name),
+                onTap: () => log(content.name),
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
